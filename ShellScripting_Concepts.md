@@ -24,6 +24,22 @@ for (( i=0; i<= 10; i++))
 ## If
 https://www.geeksforgeeks.org/conditional-statements-shell-script/
 
+### compare strings
+Bad:
+```bash
+if [["$s1" == "$s2"]]
+```
+
+Good:
+```bash
+if [[ "$s1" == "$s2" ]]
+```
+
+For the `a` contains `b`, use:
+```bash
+if [[ $s1 == *"$s2"* ]]
+```
+
 # Files
 ## Read a specific line in a file
 `sed -n 2p <file>`
@@ -63,3 +79,15 @@ arr2= cut -d ':' -f 1 <<< $val
 [How to split a delimited string into an array in awk? - Stack Overflow](https://stackoverflow.com/questions/8009664/how-to-split-a-delimited-string-into-an-array-in-awk)
 
 `awk -F: '{print $2}'' file.txt`
+
+## Remove trailing new line
+```bash
+wc -l < log.txt | tr -d '\n'
+```
+```bash
+sed -z '$ s/\n$//'
+```
+## Replace spaces with "underscore__"
+```bash
+tr -s ' ' '_'
+```
