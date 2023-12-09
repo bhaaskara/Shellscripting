@@ -18,3 +18,12 @@ fi
 ```
 ## Print a perticular line 
 `sed -n '5p' input.txt`
+
+## command status
+```
+status=$?
+echo $status
+if [ $status = 0 ]; then
+   echo "Snap shot restoration completed"
+fi
+```
